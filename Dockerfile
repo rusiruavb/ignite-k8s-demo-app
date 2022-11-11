@@ -1,12 +1,13 @@
 FROM node:14-alpine as build
 LABEL description="This is a multi-stage NodeJS image"
 WORKDIR /src
-COPY package*.json /src
+COPY ["package.json", "./"]
 RUN npm install
-COPY . /src
+COPY . .
 
 FROM node:14-alpine
-WORKDIR /src 
-COPY --from=build /src .
+WORKDIR /app 
+COPY --from=build /src /app/
 EXPOSE 8090
-CMD ["node", "index.js"]
+ENTRYPOINT [ "npm", "run" ]
+CMD [ "start" ]
