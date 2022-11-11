@@ -3,7 +3,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: calc-api-hpa
 spec:
-  maxReplicas: 10
+  maxReplicas: 5
   minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
