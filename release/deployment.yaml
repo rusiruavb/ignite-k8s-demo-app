@@ -20,7 +20,7 @@ spec:
           resources:
             limits:
               cpu: 200m
-            required:
+            requests:
               cpu: 100m
 ---
 apiVersion: v1
