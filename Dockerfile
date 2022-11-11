@@ -1,9 +1,9 @@
 FROM node:14-alpine as build
 LABEL description="This is a multi-stage NodeJS image"
 WORKDIR /src
-COPY package*.json .
+COPY package*.json /src
 RUN npm install
-COPY . .
+COPY . /src
 
 FROM node:14-alpine
 WORKDIR /src 
