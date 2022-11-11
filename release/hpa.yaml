@@ -9,4 +9,10 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: calc-api
-  targetCPUUtilizationPercentage: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 20
