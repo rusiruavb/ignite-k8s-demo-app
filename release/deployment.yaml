@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calc-api
+spec:
+  selector:
+    matchLabels:
+      run: calc-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: calc-api
+    spec:
+      containers:
+        - name: calc-api
+          image: ## location
+          ports:
+            - containerPort: 8090
+          resources:
+            limits:
+              cpu: 200m
+            required:
+              cpu: 100m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calc-api
+  labels:
+    run: calc-api
+specs:
+  ports:
+    - port: 80
+  selector:
+    run: cacl-api
