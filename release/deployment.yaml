@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: calc-api
-          image: igniteregtest.azurecr.io/calc-api
+          image: ignitedemoreg.azurecr.io/calc-api
           ports:
             - containerPort: 8090
           resources:
